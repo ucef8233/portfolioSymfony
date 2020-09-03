@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+{% block title "Page d'accueil" %}
+
+{% block body %}
+	<header id="accueil" class="header">
+		<div class="menu">
+			<a href=""><img src="/image/Ysw - Copie.png" alt="Logo Portfolio"></a>
+			<i class="animate__animated animate__bounce animate__fast		 animate__repeat-3 fas fa-align-right open"></i>
+		</div>
+		<div class="container">
+			<nav class="nav display">
+				<i class="fas fa-times close"></i>
+				<div class="nav__links">
+					<a href="#accueil">accueil</a>
+					<a href="#projet">mes projets</a>
+					<a href="#mieu">mieu me connaitre</a>
+					<a href="#contact">me contacter</a>
+				</div>
+			</nav>
+			<div class="header__text reveal">
+				<h1 class="reveal-1">Youssef Salim</h1>
+
+			</div>
+			<div class="header__btn reveal-3">
+				<a href="#projet">Portfolio</a>
+				<a href="#mieu">Mieu me connaitre</a>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section id="projet" class="portfolio">
+			<div class="portfolio__container">
+				{% for project in projects %}
+					<article class="reveal block {% if loop.index % 2 == 0 %} block__right {% else %} block__left {% endif %}">
+						<div class=" block__img reveal-1">
+							<img src="{{project.image}}" alt="image_projet">
+						</div>
+						<div class="block__text">
+							<h2 class="block__title  reveal-2">{{project.nom}}</h2>
+							<p class=" reveal-3">{{project.description}}</p>
+							<a class=" reveal-4" target="_blanck" href="">Voir plus</a>
+						</div>
+					</article>
+
+				{% endfor %}
+
+			</div>
+		</section>
+	</main>
+{% endblock %}

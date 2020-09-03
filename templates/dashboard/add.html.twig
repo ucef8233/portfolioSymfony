@@ -1,0 +1,45 @@
+{% extends 'dash.html.twig' %}
+{% form_theme formProject 'bootstrap_4_layout.html.twig' %}
+{% block title 'Ajouter un project' %}
+
+
+{% block body %}
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="card">
+						<div class="card-header card-header-primary">
+							<h4 class="card-title">Ajouter un projet</h4>
+						</div>
+						<div class="card-body">
+							{{form_start(formProject)}}
+							<div class="row">
+								<div class="col-md-6  mb-3">
+									{{form_row(formProject.nom)}}
+								</div>
+								<div class="col-md-6  mb-3">
+									{{form_row(formProject.lien)}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 ml-3 mb-3 border border-primary rounded">
+									{{form_row(formProject.image)}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mb-3">
+									{{form_row(formProject.description)}}
+								</div>
+							</div>
+							<div class="row">
+								<button type="submit" class="btn btn-primary pull-right ml-4">Ajouter Projet</button>
+							</div>
+							{{form_end(formProject)}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
