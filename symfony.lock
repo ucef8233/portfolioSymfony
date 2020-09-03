@@ -534,4 +534,5 @@
     "webmozart/assert": {
         "version": "1.9.1"
     }
+Doctrine\Persistence\ObjectManager: '@doctrine.orm.default_entity_manager'
 }

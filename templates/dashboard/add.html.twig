@@ -33,7 +33,15 @@
 								</div>
 							</div>
 							<div class="row">
-								<button type="submit" class="btn btn-primary pull-right ml-4">Ajouter Projet</button>
+								<button type="submit" class="btn btn-primary pull-right ml-4">
+									{% if editMode %}
+										Modifier Project
+
+									{% else %}
+										Ajouter un Project
+
+									{% endif %}
+								</button>
 							</div>
 							{{form_end(formProject)}}
 						</div>

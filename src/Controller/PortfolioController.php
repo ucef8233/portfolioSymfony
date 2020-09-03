@@ -9,15 +9,7 @@ use App\Repository\ProjectsRepository;
 
 class PortfolioController extends AbstractController
 {
-    /**
-     * @Route("/portfolio", name="portfolio")
-     */
-    public function index()
-    {
-        return $this->render('portfolio/index.html.twig', [
-            'controller_name' => 'PortfolioController',
-        ]);
-    }
+
     /**
      * @Route("/", name="home")
      */
