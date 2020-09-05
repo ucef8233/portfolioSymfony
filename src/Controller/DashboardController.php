@@ -52,17 +52,17 @@ class DashboardController extends AbstractController
      */
     public function profile(Request $request, ObjectManager $manager, InfoAdminRepository $repo)
     {
-        $profile = $repo->find(12650);
-        // dump($profile);
+        $profile = $repo->find(12650); /// a modifier
         $formProfile = $this->createForm(AdminType::class, $profile);
         $formProfile->handleRequest($request);
         if ($formProfile->isSubmitted() and $formProfile->isValid()) :
             $manager->persist($profile);
             $manager->flush();
-            return $this->redirectToRoute('dashboard/profile');
+            return $this->redirectToRoute('dashboard_profile');
         endif;
         return $this->render('dashboard/profile.html.twig', [
-            'formProfile' => $formProfile->createView()
+            'formProfile' => $formProfile->createView(),
+            'profile' => $profile
         ]);
     }
 }

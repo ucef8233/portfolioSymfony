@@ -12,12 +12,116 @@
 						</div>
 						<div class="card-body">
 							{{form_start(formProfile)}}
-							<div class="row"></div>
+							{{ form_widget(formProfile) }}
+							<button type="submit" class="btn btn-primary pull-right ml-4">
+								Modifier les Infos</button>
 							{{form_end(formProfile)}}
+							<br>
+							<div class="row">
+								<div class="col-lg-6 col-md-12">
+									<div class="card">
+										<div class="card-header card-header-primary">
+											<h4 class="card-title">Experiances</h4>
+										</div>
+										<div class="card-body table-responsive">
+											<table class="table table-hover">
+												<tbody>
+													{% for experiance in profile.experiances %}
+														<tr>
+															<th scope="row">{{ loop.index }}</th>
+															<td>{{experiance.date}}</td>
+															<td>{{experiance.experiance}}</td>
+															<td>
+																<a href="dashboard&profile=experiances&id=35">
+																	<i class="fas fa-folder-minus"></i>
+																</a>
+															</td>
+														</tr>
+													{% endfor %}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="card">
+										<div class="card-header card-header-primary">
+											<h4 class="card-title">Etudes</h4>
+										</div>
+										<div class="card-body table-responsive">
+											<table class="table table-hover">
+												<tbody>
+													{% for etude in profile.etudes %}
+														<tr>
+															<th scope="row">{{ loop.index }}</th>
+															<td>{{etude.date}}</td>
+															<td>{{etude.description}}</td>
+															<td>
+																<a href="dashboard&profile=experiances&id=35">
+																	<i class="fas fa-folder-minus"></i>
+																</a>
+															</td>
+														</tr>
+													{% endfor %}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-md-12">
+									<div class="card">
+										<div class="card-header card-header-primary">
+											<h4 class="card-title">Softskills</h4>
+										</div>
+										<div class="card-body table-responsive">
+											<table class="table table-hover">
+												<tbody>
+													{% for softskill in profile.softskills %}
+														<tr>
+															<th scope="row">{{ loop.index }}</th>
+															<td>{{softskill.softskill}}</td>
+															<td>
+																<a href="dashboard&profile=experiances&id=35">
+																	<i class="fas fa-folder-minus"></i>
+																</a>
+															</td>
+														</tr>
+													{% endfor %}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									<div class="card">
+										<div class="card-header card-header-primary">
+											<h4 class="card-title">Langage</h4>
+										</div>
+										<div class="card-body table-responsive">
+											<table class="table table-hover">
+												<tbody>
+													{% for langage in profile.langages %}
+														<tr>
+															<th scope="row">{{ loop.index }}</th>
+															<td>{{langage.langage}}</td>
+															<td>
+																<a href="dashboard&profile=experiances&id=35">
+																	<i class="fas fa-folder-minus"></i>
+																</a>
+															</td>
+														</tr>
+													{% endfor %}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
 
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	{% endblock %}
+				{% endblock %}
