@@ -26,9 +26,9 @@ class DashboardController extends AbstractController
     }
     /**
      * @Route("/dashboard/add", name="dashboard_add")
-     * @Route("/dashboard/edit/{id}", name="dashboard_edit")
+     * @Route("/dashboard/edit/{id}", name="dashboard_edit",methods="GET|POST")
      */
-    public function add(Request $request, ObjectManager $manager, Projects $project = null)
+    public function projectForms(Request $request, ObjectManager $manager, Projects $project = null)
     {
         if (!$project)
             $project = new Projects;
@@ -40,11 +40,43 @@ class DashboardController extends AbstractController
             $manager->flush();
             return $this->redirectToRoute('dashboard');
         endif;
-        return $this->render('dashboard/add.html.twig', [
+        return $this->render('dashboard/projectForms.html.twig', [
             'formProject' => $form->createView(),
             'editMode' => $project->getId() !== null
         ]);
     }
+    /**
+     * @Route("/dashboard/edit/{id}",name="dashboard_delete",methods="DELETE")
+     */
+    public function deleteForm(ObjectManager $manager, Projects $project, Request $request)
+    {
+        if ($this->isCsrfTokenValid('delete' . $project->getId(), $request->get('_token'))) {
+            $manager->remove($project);
+            $manager->flush();
+            // $manager->addFlash('success', 'Bien supprimé avec succès');
+        }
+        return $this->redirectToRoute('dashboard');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * @Route("/dashboard/profile",name="dashboard_profile")
      */

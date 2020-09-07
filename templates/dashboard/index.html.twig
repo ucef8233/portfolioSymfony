@@ -19,8 +19,8 @@
 									<th>#</th>
 									<th>image</th>
 									<th>Mon du projet</th>
-									<th>Lien Github</th>
 									<th>description</th>
+									<th> Lien Github</th>
 									<th>delet</th>
 									<th>update</th>
 								</thead>
@@ -35,9 +35,11 @@
 											<td>{{project.description}}</td>
 											<td>{{project.lien}}</td>
 											<td>
-												<a href="">
-													<i class="fas fa-folder-minus"></i>
-												</a>
+											 <form method="post" action="{{ path('dashboard_delete', {id: project.id}) }}"  onsubmit="return confirm('Êtes vous vraiment sûr ?')">
+												<input type="hidden" name="_method" value="DELETE">
+												<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
+												<button class="btn btn-danger">Supprimer</button>
+											</form>
 											</td>
 											<td>
 												<a href="{{path('dashboard_edit',{'id': project.id})}}">
