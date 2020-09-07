@@ -2,16 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\InfoAdmin;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\{ProjectsRepository, InfoAdminRepository};
-use App\Entity\Projects;
+use App\Repository\{ProjectsRepository, InfoAdminRepository, SoftskillRepository};
+use App\Entity\{Projects, InfoAdmin, Softskill};
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\{HttpFoundation\Request, Routing\Annotation\Route};
 use Symfony\Component\Form\Extension\Core\Type\{TextType, FileType};
-use App\Form\ProjectsType;
-use App\Form\AdminType;
+use App\Form\{ProjectsType, AdminType, SoftskillType};
+
 
 class DashboardController extends AbstractController
 {
@@ -50,8 +48,8 @@ class DashboardController extends AbstractController
     /**
      * @Route("/dashboard/profile",name="dashboard_profile")
      */
-    public function profile(Request $request, ObjectManager $manager, InfoAdminRepository $repo)
-    {
+    public function profile(Request $request, ObjectManager $manager, InfoAdminRepository $repo, SoftskillRepository $soft)
+    { /// infoAdminForm
         $profile = $repo->find(12650); /// a modifier
         $formProfile = $this->createForm(AdminType::class, $profile);
         $formProfile->handleRequest($request);
@@ -60,8 +58,18 @@ class DashboardController extends AbstractController
             $manager->flush();
             return $this->redirectToRoute('dashboard_profile');
         endif;
+        //// Softskillls 
+        // $soft = new Softskill;
+        // $formSoftskills = $this->createForm(SoftskillType::class, $soft);
+        // $formSoftskills->handleRequest($request);
+        // if ($formSoftskills->isSubmitted() and $formSoftskills->isValid()) :
+        //     $manager->persist($soft);
+        //     $manager->flush();
+        //     return $this->redirectToRoute('dashboard_profile');
+        // endif;
         return $this->render('dashboard/profile.html.twig', [
             'formProfile' => $formProfile->createView(),
+            // 'formSoftskills' => $formSoftskills->createView(),
             'profile' => $profile
         ]);
     }

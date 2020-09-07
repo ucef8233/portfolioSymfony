@@ -44,5 +44,46 @@
 				{% endfor %}
 			</div>
 		</section>
+		<section id="mieu" class="main__propos">
+			<pre class="code__propos reveal">
+<code class="code">
+<span class="code__ligne"><span class="code__braket1"></span></span>
+<span class="code__ligne">  <span class="code__ligne--vide"> </span></span>
+<span class="code__ligne">..<span class="code__var">Nom</span> <span class="code__value"> {{profile.nom}}</span> </span>
+<span class="code__ligne">..<span class="code__var">Titre</span>  <span class="code__value"> {{profile.titre}}</span> </span>
+<span class="code__ligne">..<span class="code__var">Email</span><span class="code__value"> {{profile.mail}}</span> </span>
+<span class="code__ligne">..<span class="code__var">Adresse</span> <span class="code__value"> {{profile.adress}}</span> </span>
+<span class="code__ligne">  <span class="code__ligne--vide"> </span></span>
+<span class="code__ligne">..<span class="code__var">Mes expériences</span> <span class="code__braket1"> </span> </span>
+<span class="code__ligne"> <span class="code__ligne--vide"> </span></span>
+{% for experiance in profile.experiances %}
+<span class="code__ligne">....<span class="code__cle">{{experiance.date}} </span> <span class="code__value">{{experiance.experiance}}</span> </span>
+{% endfor %}
+<span class="code__ligne"><span class="code__braket2"> </span></span>
+<span class="code__ligne"> <span class="code__ligne--vide"> </span></span>
+<span class="code__ligne">..<span class="code__var">Competences_technique</span>[{% for langage in profile.langages %}<span class="code__value">{{langage.langage}}</span></span>{% endfor %} ] </span>
+<span class="code__ligne"> <span class="code__ligne--vide"> </span></span>
+<span class="code__ligne">..<span class="code__var">SoftSkils</span> [ </span>
+{% for softskill in profile.softskills %}
+<span class="code__ligne">....<span class="code__value">{{softskill.softskill}}</span> </span>
+{% endfor %}
+<span class="code__ligne">..]<span class="code__ligne--vide"> </span></span>
+<span class="code__ligne">..<span class="code__var">Education</span> <span class="code__braket1"></span></span>
+<span class="code__ligne"> <span class="code__ligne--vide"> </span></span>
+{% for etude in profile.etudes %}
+<span class="code__ligne">....<span class="code__cle">{{etude.date}}</span> <span class="code__value">{{etude.description}}</span> </span>
+{% endfor %}
+<span class="code__ligne"><span class="code__braket2"> </span></span>
+<span class="code__ligne"><span class="code__braket2"></span></span>
+</code>
+<div class="social_media reveal">
+  <a href="https://www.facebook.com/salim.ysf/" target="_blanck"><i class="fab fa-facebook-square reveal-1"></i></a>
+  <a href="https://github.com/ucef8233" target="_blanck"><i class="fab fa-github-square reveal-2"></i></a>
+  <a href="https://www.linkedin.com/in/youssef-salim-226b73197/" target="_blanck"><i class="fab fa-linkedin reveal-3"></i></a>
+  <a href="https://twitter.com/youssef93709037" target="_blanck"><i class="fab fa-twitter-square reveal-4"></i></i></a>
+</div>
+</pre>
+		</section>
 
+</main>
 	{% endblock %}
