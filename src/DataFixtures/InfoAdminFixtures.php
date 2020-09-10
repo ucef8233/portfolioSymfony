@@ -15,9 +15,7 @@ class InfoAdminFixtures extends Fixture
             $admin->setNom('Youssef Salim')
                 ->setTitre('Developper Web!')
                 ->setMail('ucefsalim@gmail.com')
-                ->setAdress('Block 50 n16 hay hassani casablanca')
-                ->setLogin('admin')
-                ->setMdp('admin');
+                ->setAdress('Block 50 n16 hay hassani casablanca');
 
             $manager->persist($admin);
             for ($j = 1; $j < 5; $j++) {

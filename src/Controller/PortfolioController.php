@@ -16,7 +16,7 @@ class PortfolioController extends AbstractController
     public function home(ProjectsRepository $repoProject, InfoAdminRepository $repoAdmin)
     {
         $projects = $repoProject->findAll();
-        $profile = $repoAdmin->find(12650);
+        $profile = $repoAdmin->find(12651);
         dump($profile);
         return $this->render('portfolio/home.html.twig', [
             'controller_name' => 'PortfolioController',

@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class InfoAdmin
 {
+    // /**
+    //  * @ORM\Column(type="json")
+    //  */
+    // private $roles = [];
+
+    //
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -38,17 +44,6 @@ class InfoAdmin
      * @ORM\Column(type="text")
      */
     private $adress;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $login;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $mdp;
-
     /**
      * @ORM\OneToMany(targetEntity=Etude::class, mappedBy="admin")
      */
@@ -68,7 +63,14 @@ class InfoAdmin
      * @ORM\OneToMany(targetEntity=Experiance::class, mappedBy="admin")
      */
     private $experiances;
+    // public function getRoles(): array
+    // {
+    //     $roles = $this->roles;
+    //     // guarantee every user at least has ROLE_USER
+    //     $roles[] = 'ROLE_USER';
 
+    //     return array_unique($roles);
+    // }
     public function __construct()
     {
         $this->etudes = new ArrayCollection();
@@ -126,30 +128,6 @@ class InfoAdmin
     public function setAdress(string $adress): self
     {
         $this->adress = $adress;
-
-        return $this;
-    }
-
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    public function getMdp(): ?string
-    {
-        return $this->mdp;
-    }
-
-    public function setMdp(string $mdp): self
-    {
-        $this->mdp = $mdp;
 
         return $this;
     }
