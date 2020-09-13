@@ -1,1 +1,1 @@
-web: heroku-php-apache2 public/git add Procfile
+web: heroku-php-apache2 public/
