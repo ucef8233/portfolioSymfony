@@ -4,64 +4,65 @@
 {% endblock %}
 
 {% block body %}
-	<div class="content">
-		<div class="container-fluid">
+<div class="content">
+	<div class="container-fluid">
 
-			<div class="row">
-				<div class="col-lg-12 col-md-12">
-					<div class="card">
-						<div class="card-header card-header-primary">
-							<h4 class="card-title">Tableau des Projets</h4>
-							{% for message in app.flashes('success') %}
-								<div class="alert alert-success">{{message}}</div>
-							{% endfor %}
-						</div>
-						<div class="card-body table-responsive">
-							<table class="table table-hover">
-								<thead class="text-warning">
-									<th>#</th>
-									<th>image</th>
-									<th>Mon du projet</th>
-									<th>description</th>
-									<th>Lien Github</th>
-									<th>delet</th>
-									<th>update</th>
-								</thead>
-								<tbody>
-									<!-- les projets -->
-									{% for project in projects %}
-										<tr>
-											<th scope="row">{{ loop.index }}</th>
-											<td><img src="{{project.image}}">
-											</td>
-											<td>{{project.nom}}</td>
-											<td>{{project.description}}</td>
-											<td>{{project.lien}}</td>
-											<td>
-												<a href="#" onclick="event.preventDefault();confirm('êtes vous vraiment sûr ?') composer require vich/uploader-bundle
-														&& document.getElementById('delet').submit()">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="card">
+					<div class="card-header card-header-primary">
+						<h4 class="card-title">Tableau des Projets</h4>
+						{% for message in app.flashes('success') %}
+						<div class="alert alert-success">{{message}}</div>
+						{% endfor %}
+					</div>
+					<div class="card-body table-responsive">
+						<table class="table table-hover">
+							<thead class="text-warning">
+								<th>#</th>
+								<th>image</th>
+								<th>Mon du projet</th>
+								<th>description</th>
+								<th>Lien Github</th>
+								<th>delet</th>
+								<th>update</th>
+							</thead>
+							<tbody>
+								<!-- les projets -->
+								{% for project in projects %}
+								<tr>
+									<th scope="row">{{ loop.index }}</th>
+									<td><img src="image/projects/{{project.image}}">
+									</td>
+									<td>{{project.nom}}</td>
+									<td>{{project.description}}</td>
+									<td>{{project.lien}}</td>
+									<td>
+										<a href="#"
+											onclick="event.preventDefault();confirm('êtes vous vraiment sûr ?') && document.getElementById('delet').submit()">
 
-													<i class="fas fa-trash-alt"></i>
-												</a>
-												<form style="display:none;" id="delet" method="post" action="{{ path('dashboard_delete', {id: project.id}) }}">
-													<input type="hidden" name="_method" value="DELETE">
-													<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
-												</form>
-											</td>
-											<td>
-												<a href="{{path('dashboard_edit',{'id': project.id})}}">
-													<i class="fas fa-user-edit"></i>
-												</a>
-											</td>
-										</tr>
-									{% endfor %}
-								</tbody>
-							</table>
-						</div>
+											<i class="fas fa-trash-alt"></i>
+										</a>
+										<form style="display:none;" id="delet" method="post"
+											action="{{ path('dashboard_delete', {id: project.id}) }}">
+											<input type="hidden" name="_method" value="DELETE">
+											<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
+										</form>
+									</td>
+									<td>
+										<a href="{{path('dashboard_edit',{'id': project.id})}}">
+											<i class="fas fa-user-edit"></i>
+										</a>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
 {% endblock %}

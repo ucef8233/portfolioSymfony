@@ -53,7 +53,7 @@ class Projects
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
-     * @Vich\UploadableField(mapping="pprojects_image", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="projects_image", fileNameProperty="image")
      * 
      * @var File|null
      */
@@ -133,7 +133,7 @@ class Projects
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
