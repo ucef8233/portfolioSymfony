@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Repository\{ProjectsRepository, InfoAdminRepository, SoftskillRepository};
+use App\Repository\ProjectsRepository;
 use App\Entity\Projects;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\{HttpFoundation\Request, Routing\Annotation\Route};
@@ -12,15 +12,14 @@ use App\Form\ProjectsType;
 
 class DashboardController extends AbstractController
 {
+
     /**
      * @Route("/dashboard", name="dashboard")
      */
     public function index(ProjectsRepository $repo)
     {
-        $projects = $repo->findAll();
         return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'DashboardController',
-            'projects'  => $projects
+            'projects'  => $repo->findAll()
         ]);
     }
     /**
