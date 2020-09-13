@@ -38,10 +38,14 @@
 											<td>{{project.description}}</td>
 											<td>{{project.lien}}</td>
 											<td>
-												<form method="post" action="{{ path('dashboard_delete', {id: project.id}) }}" onsubmit="return confirm('Êtes vous vraiment sûr ?')">
+												<a href="#" onclick="event.preventDefault();confirm('êtes vous vraiment sûr ?') composer require vich/uploader-bundle
+														&& document.getElementById('delet').submit()">
+
+													<i class="fas fa-trash-alt"></i>
+												</a>
+												<form style="display:none;" id="delet" method="post" action="{{ path('dashboard_delete', {id: project.id}) }}">
 													<input type="hidden" name="_method" value="DELETE">
 													<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
-													<button class="btn btn-danger">Supprimer</button>
 												</form>
 											</td>
 											<td>

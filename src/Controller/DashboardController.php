@@ -24,13 +24,13 @@ class DashboardController extends AbstractController
     }
     /**
      * @Route("/dashboard/add", name="dashboard_add")
-     * @Route("/dashboard/edit/{id}", name="dashboard_edit",methods="GET|POST")
+     * @Route("/dashboard/edit/{id}", name="dashboard_edit",methods="GET|PUT")
      */
     public function projectForms(Request $request, ObjectManager $manager, Projects $project = null)
     {
         if (!$project)
             $project = new Projects;
-        $form  = $this->createForm(ProjectsType::class, $project);
+        $form  = $this->createForm(ProjectsType::class, $project, ['method' => 'PUT']);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid()) :
             $manager->persist($project);
@@ -44,7 +44,7 @@ class DashboardController extends AbstractController
         ]);
     }
     /**
-     * @Route("/dashboard/edit/{id}",name="dashboard_delete",methods="DELETE")
+     * @Route("/dashboard/delete/{id}",name="dashboard_delete",methods="DELETE")
      */
     public function deleteForm(ObjectManager $manager, Projects $project, Request $request)
     {
