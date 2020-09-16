@@ -4,10 +4,11 @@ namespace App\Form;
 
 use App\Entity\InfoAdmin;
 use App\Entity\Softskill;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 class SoftskillType extends AbstractType
 {
@@ -15,10 +16,14 @@ class SoftskillType extends AbstractType
     {
         $builder
             ->add('softskill')
-            ->add('admin', EntityType::class, [
-                'class' => InfoAdmin::class,
-
-            ]);
+            ->add(
+                'admin',
+                EntityType::class,
+                [
+                    'class' => InfoAdmin::class,
+                    'choice_label' => 'nom',
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)

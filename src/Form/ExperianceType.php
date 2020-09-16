@@ -2,10 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\InfoAdmin;
 use App\Entity\Experiance;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ExperianceType extends AbstractType
 {
@@ -14,8 +16,14 @@ class ExperianceType extends AbstractType
         $builder
             ->add('experiance')
             ->add('date')
-            ->add('admin')
-        ;
+            ->add(
+                'admin',
+                EntityType::class,
+                [
+                    'class' => InfoAdmin::class,
+                    'choice_label' => 'nom',
+                ]
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)
