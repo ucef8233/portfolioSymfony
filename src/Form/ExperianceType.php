@@ -2,10 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\InfoAdmin;
-use App\Entity\Experiance;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
+use App\Entity\{Experiance, InfoAdmin};
+use Symfony\Component\Form\{FormBuilderInterface, AbstractType};
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 

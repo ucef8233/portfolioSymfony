@@ -2,16 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Etude;
+use App\Entity\{Etude, Experiance, Langage, Softskill};
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\InfoAdminRepository;
-use App\Entity\Experiance;
-use App\Entity\Langage;
-use App\Entity\Softskill;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\{HttpFoundation\Request, Routing\Annotation\Route};
 use App\Form\{InfoAdminType, SoftskillType, EtudeType, ExperianceType, LangageType};
-use App\Repository\SoftskillRepository;
 
 class ProfileController extends AbstractController
 {

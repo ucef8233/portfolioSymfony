@@ -4,10 +4,10 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\ProjectsRepository;
-use App\Entity\Projects;
+use App\Entity\{Projects, ProjectsType};
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\{HttpFoundation\Request, Routing\Annotation\Route};
-use App\Form\ProjectsType;
+
 
 
 class DashboardController extends AbstractController
