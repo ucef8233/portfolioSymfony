@@ -3,10 +3,10 @@
 namespace App\Form;
 
 use App\Entity\{Softskill, InfoAdmin};
-use Symfony\Component\Form\{FormBuilderInterface, AbstractType};
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-
 
 class SoftskillType extends AbstractType
 {
