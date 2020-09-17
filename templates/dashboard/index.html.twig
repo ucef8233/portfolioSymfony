@@ -38,17 +38,17 @@
 									<td>{{project.description}}</td>
 									<td>{{project.lien}}</td>
 									<td>
-										<a href="#"
-											onclick="event.preventDefault();confirm('êtes vous vraiment sûr ?') && document.getElementById('delet').submit()">
-
+										<a href="#" onclick="event.preventDefault();confirm('êtes vous vraiment sûr ?') &&
+											document.getElementById('delet{{ loop.index }}').submit()">
 											<i class="fas fa-trash-alt"></i>
 										</a>
-										<form style="display:none;" id="delet" method="post"
-											action="{{ path('dashboard_delete', {id: project.id}) }}">
-											<input type="hidden" name="_method" value="DELETE">
-											<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
-										</form>
 									</td>
+									<form style="display:none;" id="delet{{ loop.index }}" method="post"
+										action="{{ path('dashboard_delete', {id: project.id}) }}">
+
+										<input type="hidden" name="_method" value="DELETE">
+										<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ project.id) }}">
+									</form>
 									<td>
 										<a href="{{path('dashboard_edit',{'id': project.id})}}">
 											<i class="fas fa-user-edit"></i>

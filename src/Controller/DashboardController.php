@@ -4,10 +4,10 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\ProjectsRepository;
-use App\Entity\{Projects, ProjectsType};
+use App\Entity\Projects;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\{HttpFoundation\Request, Routing\Annotation\Route};
-
+use App\Form\ProjectsType;
 
 
 class DashboardController extends AbstractController
@@ -54,6 +54,7 @@ class DashboardController extends AbstractController
             $this->addFlash('success', 'project supprimé avec succès');
         }
         return $this->redirectToRoute('dashboard');
+        // dd($project->getId(), $request->get('_token'));
     }
 
 
