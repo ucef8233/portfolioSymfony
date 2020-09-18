@@ -86,6 +86,25 @@
 </div>
 </pre>
 	</section>
-
+	</section>
+	<section id="contact" class="contact ">
+		<div class="contact__container">
+			<h2 class="contact__title">Me contacter</h2>
+			<!-- <form method="POST" class="contact__form reveal">
+				<input type="text" name="name_contact" class="field reveal-1" placeholder="Your Name" required>
+				<input type="email" name="mail_contact" class="field reveal-2" placeholder="Your Email" required>
+				<input type="text" name="number_contact" class="field reveal-3" placeholder="Phone" required>
+				<textarea name="message_contact" placeholder="Message" class="field reveal-4" required></textarea>
+				<button type="submit" name="sub_contact" class="btn reveal-5">Envoyer</button>
+			</form> -->
+			{{form_start(formContact,{'attr':{'class':"contact__form reveal"}}) }}
+			{{form_row(formContact.name,{'attr':{'class':"field reveal-1",'placeholder':"Your Name"}})}}
+			{{form_row(formContact.phone,{'attr':{'class':"field reveal-2",'placeholder':"Phone"}})}}
+			{{form_row(formContact.email,{'attr':{'class':"field reveal-3",'placeholder':"Your Email"}})}}
+			{{form_row(formContact.message,{'attr':{'class':"field reveal-4",'placeholder':"Message"}})}}
+			<button type="submit" name="sub_contact" class="btn reveal-5">Envoyer</button>
+			{{form_end(formContact)}}
+		</div>
+	</section>
 </main>
 {% endblock %}
