@@ -8,7 +8,7 @@ use App\Entity\Projects;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\{HttpFoundation\Request, Routing\Annotation\Route};
 use App\Form\ProjectsType;
-
+use Knp\Component\Pager\PaginatorInterface;
 
 class DashboardController extends AbstractController
 {
@@ -16,10 +16,12 @@ class DashboardController extends AbstractController
     /**
      * @Route("/dashboard", name="dashboard")
      */
-    public function index(ProjectsRepository $repo)
+    public function index(ProjectsRepository $repo, PaginatorInterface $pagin, Request $request)
     {
+        $contenu = $repo->findAll();
+        $projects = $pagin->paginate($contenu, $request->query->getInt('page', 1), 3);
         return $this->render('dashboard/index.html.twig', [
-            'projects'  => $repo->findAll()
+            'projects'  => $projects
         ]);
     }
     /**
