@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/index.css">
 {% endblock %}
 {% block body %}
+
 <header id="accueil" class="header">
 	<div class="menu">
 		<a href=""><img src="/image/Ysw - Copie.png" alt="Logo Portfolio"></a>
@@ -20,8 +21,10 @@
 			</div>
 		</nav>
 		<div class="header__text reveal">
-			<h1 class="reveal-1">Youssef Salim</h1>
-
+			<h1 class="reveal-1">{{profile.nom}}</h1>
+			<blockquote class="reveal-1" cite=" https://citation-celebre.leparisien.fr/citation/web"> <span>“ </span>
+				{{profile.description}} <span>„</span>
+			</blockquote>
 		</div>
 		<div class="header__btn reveal-3">
 			<a href="#projet">Portfolio</a>
@@ -107,4 +110,9 @@
 		</div>
 	</section>
 </main>
+{% for message in app.flashes('mail') %}
+<script>
+	alert('mail envoyer avec succées');
+</script>
+{% endfor %}
 {% endblock %}

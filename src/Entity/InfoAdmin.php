@@ -62,6 +62,11 @@ class InfoAdmin
      * @ORM\OneToMany(targetEntity=Experiance::class, mappedBy="admin")
      */
     private $experiances;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
     // public function getRoles(): array
     // {
     //     $roles = $this->roles;
@@ -251,6 +256,18 @@ class InfoAdmin
                 $experiance->setAdmin(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

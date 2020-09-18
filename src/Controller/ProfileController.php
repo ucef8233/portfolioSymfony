@@ -33,6 +33,7 @@ class ProfileController extends AbstractController
         if ($formProfile->isSubmitted() and $formProfile->isValid()) :
             $this->em->persist($profile);
             $this->em->flush();
+            $this->addFlash('success profile', 'Info Profile modifier avec succée');
             return $this->redirectToRoute('dashboard_profile');
         endif;
         ////form soft 
@@ -42,7 +43,7 @@ class ProfileController extends AbstractController
         if ($formSoft->isSubmitted() and $formSoft->isValid()) :
             $this->em->persist($soft);
             $this->em->flush();
-            $this->addFlash('success profile', 'Profile modifier avec succée');
+            $this->addFlash('success profile', 'softskill ajouter avec succée');
             return $this->redirectToRoute('dashboard_profile');
         endif;
         ////form Etudes 
@@ -52,7 +53,7 @@ class ProfileController extends AbstractController
         if ($formEtude->isSubmitted() and $formEtude->isValid()) :
             $this->em->persist($etude);
             $this->em->flush();
-            $this->addFlash('success profile', 'Profile modifier avec succée');
+            $this->addFlash('success profile', 'Etude ajouter avec succée');
             return $this->redirectToRoute('dashboard_profile');
         endif;
         ////form Experiance 
@@ -62,7 +63,7 @@ class ProfileController extends AbstractController
         if ($formExperiance->isSubmitted() and $formExperiance->isValid()) :
             $this->em->persist($experiance);
             $this->em->flush();
-            $this->addFlash('success profile', 'Profile modifier avec succée');
+            $this->addFlash('success profile', 'Experiance ajouter avec succée');
             return $this->redirectToRoute('dashboard_profile');
         endif;
         ////form langages 
@@ -72,7 +73,7 @@ class ProfileController extends AbstractController
         if ($formLangage->isSubmitted() and $formLangage->isValid()) :
             $this->em->persist($lang);
             $this->em->flush();
-            $this->addFlash('success profile', 'Profile modifier avec succée');
+            $this->addFlash('success profile', 'Langage ajouter avec succée');
             return $this->redirectToRoute('dashboard_profile');
         endif;
         ////return View
@@ -95,7 +96,7 @@ class ProfileController extends AbstractController
         }
 
         $this->em->flush();
-        $this->addFlash('success delet', 'element supprimé avec succès');
+        $this->addFlash('success delet', 'softskill supprimé avec succès');
         return $this->redirectToRoute('dashboard_profile');
     }
     /**
@@ -108,7 +109,7 @@ class ProfileController extends AbstractController
             $this->em->remove($etude);
         }
         $this->em->flush();
-        $this->addFlash('success delet', 'element supprimé avec succès');
+        $this->addFlash('success delet', 'etude supprimé avec succès');
         return $this->redirectToRoute('dashboard_profile');
     }
     /**
@@ -121,7 +122,7 @@ class ProfileController extends AbstractController
             $this->em->remove($exp);
         }
         $this->em->flush();
-        $this->addFlash('success delet', 'element supprimé avec succès');
+        $this->addFlash('success delet', 'experiance supprimé avec succès');
         return $this->redirectToRoute('dashboard_profile');
     }
     /**
@@ -134,7 +135,7 @@ class ProfileController extends AbstractController
             $this->em->remove($lng);
         }
         $this->em->flush();
-        $this->addFlash('success delet', 'element supprimé avec succès');
+        $this->addFlash('success delet', 'langage supprimé avec succès');
         return $this->redirectToRoute('dashboard_profile');
     }
 }

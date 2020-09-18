@@ -12,6 +12,12 @@
 				<div class="card">
 					<div class="card-header card-header-primary">
 						<h4 class="card-title">Edit Profile</h4>
+						{% for message in app.flashes('success profile') %}
+						<div class="alert alert-success">{{message}}</div>
+						{% endfor %}
+						{% for message in app.flashes('success delet') %}
+						<div class="alert alert-success">{{message}}</div>
+						{% endfor %}
 					</div>
 					<div class="card-body">
 						{{form_start(formProfile)}}
@@ -21,8 +27,9 @@
 							<div class="col-md-4"> {{form_row(formProfile.mail)}}</div>
 						</div>
 						<div class="row">
-							<div class="col-md-9"> {{form_row(formProfile.adress)}}</div>
-							<div class="col-md-3"><button type="submit" class="btn btn-primary pull-right ml-4">
+							<div class="col-md-3"> {{form_row(formProfile.adress)}}</div>
+							<div class="col-md-5"> {{form_row(formProfile.description)}}</div>
+							<div class="col-md-2"><button type="submit" class="btn btn-primary pull-right ml-4">
 									Modifier les Infos</button> </div>
 						</div>
 						{{form_end(formProfile)}}

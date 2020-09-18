@@ -3,27 +3,27 @@
 {% block title %}page login
 {% endblock %}
 {% block stylesheets %}
-	<link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet" href="/css/login.css">
 {% endblock %}
 
 
 {% block body %}
-	<div class="container">
-		<div class="contact-box">
-			<div class="left">
-				<img src="/image/Ysw - Copie.png" alt="Logo">
-			</div>
-			<div class="right">
+<div class="container">
+	<div class="contact-box">
+		<div class="left">
+			<img src="/image/Ysw - Copie.png" alt="Logo">
+		</div>
+		<div class="right">
 			{% if error %}
-			<div class="error">{{error.messageKey}} </div>
+			<div class="error">{{ error.messageKey|trans(error.messageData, 'security', 'fr') }}</div>
 			{% endif %}
-				<form class="login__box" method="POST" action"{{path('security_login')}}">
-					<input type="text" name="_username" value='{{lastUsername}}' placeholder="Username" required><br>
-					<input type="password" name="_password" placeholder="Password" required><br>
-					<button type="submit" name="connexion" value="Connexion">Connexion</button>
-				</form>
-			</div>
+			<form class="login__box" method="POST" action"{{path('security_login')}}">
+				<input type="text" name="_username" value='{{lastUsername}}' placeholder="Username" required><br>
+				<input type="password" name="_password" placeholder="Password" required><br>
+				<button type="submit" name="connexion" value="Connexion">Connexion</button>
+			</form>
 		</div>
 	</div>
+</div>
 
 {% endblock %}

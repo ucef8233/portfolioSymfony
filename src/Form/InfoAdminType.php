@@ -15,7 +15,8 @@ class InfoAdminType extends AbstractType
             ->add('nom')
             ->add('titre', TextType::class)
             ->add('mail')
-            ->add('adress');
+            ->add('adress')
+            ->add('description');
     }
 
     public function configureOptions(OptionsResolver $resolver)
