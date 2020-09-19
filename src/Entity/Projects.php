@@ -63,6 +63,16 @@ class Projects
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -116,11 +126,11 @@ class Projects
     {
         $this->imageFile = $imageFile;
 
-        // if (null !== $imageFile) {
-        //     // It is required that at least one field changes if you are using doctrine
-        //     // otherwise the event listeners won't be called and the file is lost
-        //     $this->updatedAt = new \DateTimeImmutable();
-        // }
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
 
     public function getImageFile(): ?File
@@ -136,6 +146,30 @@ class Projects
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

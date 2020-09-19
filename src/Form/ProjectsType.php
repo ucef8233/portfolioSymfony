@@ -20,12 +20,9 @@ class ProjectsType extends AbstractType
             ->add('imageFile', VichImageType::class, [
                 'required' => true,
                 'allow_delete' => true,
-                // 'delete_label' => 'supprimer',
-                'download_label' => 'telecharger',
+                'label' => 'ImageFile',
                 'download_uri' => false,
-                'image_uri' => true,
-                // 'imagine_pattern' => '...',
-                'asset_helper' => true,
+
             ]);
     }
 

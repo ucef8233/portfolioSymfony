@@ -32,7 +32,7 @@
 								{% for project in projects %}
 								<tr>
 									<th scope="row">{{ loop.index }}</th>
-									<td><img src="image/projects/{{project.image}}">
+									<td><img src="{{vich_uploader_asset(project,'imageFile')}}">
 									</td>
 									<td>{{project.nom}}</td>
 									<td>{{project.description}}</td>

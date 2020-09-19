@@ -91,10 +91,8 @@ class ProfileController extends AbstractController
      */
     public function deletesoft(Softskill $soft, Request $request)
     {
-        if ($this->isCsrfTokenValid('deletesoft' . $soft->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid('deletesoft' . $soft->getId(), $request->get('_token')))
             $this->em->remove($soft);
-        }
-
         $this->em->flush();
         $this->addFlash('success delet', 'softskill supprimé avec succès');
         return $this->redirectToRoute('dashboard_profile');
@@ -105,9 +103,8 @@ class ProfileController extends AbstractController
     public function deleteetude(Etude $etude, Request $request)
     {
 
-        if ($this->isCsrfTokenValid('deletetude' . $etude->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid('deletetude' . $etude->getId(), $request->get('_token')))
             $this->em->remove($etude);
-        }
         $this->em->flush();
         $this->addFlash('success delet', 'etude supprimé avec succès');
         return $this->redirectToRoute('dashboard_profile');
@@ -118,9 +115,8 @@ class ProfileController extends AbstractController
     public function deleteexperiance(Experiance $exp, Request $request)
     {
 
-        if ($this->isCsrfTokenValid('deletexperiance' . $exp->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid('deletexperiance' . $exp->getId(), $request->get('_token')))
             $this->em->remove($exp);
-        }
         $this->em->flush();
         $this->addFlash('success delet', 'experiance supprimé avec succès');
         return $this->redirectToRoute('dashboard_profile');
@@ -131,9 +127,8 @@ class ProfileController extends AbstractController
     public function deletelangage(Langage $lng, Request $request)
     {
 
-        if ($this->isCsrfTokenValid('deletelangage' . $lng->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid('deletelangage' . $lng->getId(), $request->get('_token')))
             $this->em->remove($lng);
-        }
         $this->em->flush();
         $this->addFlash('success delet', 'langage supprimé avec succès');
         return $this->redirectToRoute('dashboard_profile');

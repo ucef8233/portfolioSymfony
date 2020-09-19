@@ -1,6 +1,12 @@
 {% extends 'dash.html.twig' %}
 {% form_theme formProject 'bootstrap_4_layout.html.twig' %}
-{% block title 'Ajouter un project' %}
+{% block title %}
+{% if editMode %}
+Modiffier un project
+{% else %}
+Ajouter un project
+{% endif %}
+{% endblock %}
 {% block body %}
 <div class="content">
 	<div class="container-fluid">
@@ -13,12 +19,16 @@
 					<div class="card-body">
 						{{form_start(formProject)}}
 						<div class="row">
-							<div class="col-md-6"> {{form_row(formProject.nom)}}</div>
-							<div class="col-md-6"> {{form_row(formProject.lien)}}</div>
+							<div class="col-md-6"> {{form_row(formProject.nom,{'attr':{'placeholder':"Nom"},'label':false})}}</div>
+							<div class="col-md-6"> {{form_row(formProject.lien,{'attr':{'placeholder':"Lien"},'label':false})}}</div>
 						</div>
 						<div class="row">
-							<div class="col-md-3"> {{form_row(formProject.imageFile)}}</div>
-							<div class="col-md-9"> {{form_row(formProject.description)}}</div>
+							<div class="col-md-5 ">
+								{{form_row(formProject.imageFile,{'attr':{'placeholder':"Image File"},'label':false})}}
+							</div>
+							<div class="col-md-7">
+								{{form_row(formProject.description,{'attr':{'placeholder':"Description"},'label':false})}}
+							</div>
 						</div>
 						<button type="submit" class="btn btn-primary pull-right ml-4">
 							{% if editMode %}

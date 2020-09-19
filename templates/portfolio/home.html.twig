@@ -38,12 +38,12 @@
 			{% for project in projects %}
 			<article class="reveal block {% if loop.index % 2 == 0 %} block__right {% else %} block__left {% endif %}">
 				<div class=" block__img reveal-1">
-					<img src="image/projects/{{project.image}}" alt="image_projet">
+					<img src="{{vich_uploader_asset(project,'imageFile')}}" alt="image_projet">
 				</div>
 				<div class="block__text">
 					<h2 class="block__title  reveal-2">{{project.nom}}</h2>
 					<p class=" reveal-3">{{project.description}}</p>
-					<a class=" reveal-4" target="_blanck" href="">Voir plus</a>
+					<a class=" reveal-4" target="_blanck" href="{{project.lien}}">Voir plus</a>
 				</div>
 			</article>
 			{% endfor %}

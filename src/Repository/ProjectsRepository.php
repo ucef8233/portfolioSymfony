@@ -18,6 +18,10 @@ class ProjectsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Projects::class);
     }
+    public function findAll()
+    {
+        return $this->findBy(array(), array('id' => 'DESC'));
+    }
 
     // /**
     //  * @return Projects[] Returns an array of Projects objects

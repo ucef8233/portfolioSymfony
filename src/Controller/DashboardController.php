@@ -30,11 +30,15 @@ class DashboardController extends AbstractController
      */
     public function projectForms(Request $request, ObjectManager $manager, Projects $project = null)
     {
-        if (!$project)
+        if (!$project) {
             $project = new Projects;
+            $project->setCreatedAt(new \DateTime());
+        }
         $form  = $this->createForm(ProjectsType::class, $project, ['method' => 'PUT']);
+
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid()) :
+            $project->setUpdatedAt(new \DateTime());
             $manager->persist($project);
             $manager->flush();
             $this->addFlash('success', 'liste des project modifier avec succée');
