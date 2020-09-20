@@ -22,6 +22,7 @@ class ProjectsType extends AbstractType
                 'allow_delete' => true,
                 'label' => 'ImageFile',
                 'download_uri' => false,
+                // "attr" => ['class' => "form-control-file"],
 
             ]);
     }

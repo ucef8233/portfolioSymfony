@@ -50,7 +50,7 @@
 													<td>
 														<form method="post" action="{{ path('experiance_delete', {id: experiance.id}) }}">
 															<input type="hidden" name="_method" value="DELETE">
-															<input type="submit" value="Delet" class="btn btn-danger">
+															<input type="submit" value="Delet" class="btn btn-sm btn-danger">
 															<input type="hidden" name="_token"
 																value="{{ csrf_token('deletexperiance' ~ experiance.id) }}">
 														</form>
@@ -87,7 +87,7 @@
 													<td>
 														<form method="post" action="{{ path('etude_delete', {id: etude.id}) }}">
 															<input type="hidden" name="_method" value="DELETE">
-															<input type="submit" value="Delet" class="btn btn-danger">
+															<input type="submit" value="Delet" class="btn btn-sm btn-danger">
 															<input type="hidden" name="_token" value="{{ csrf_token('deletetude' ~ etude.id) }}">
 														</form>
 													</td>
@@ -124,7 +124,7 @@
 													<td>
 														<form method="post" action="{{ path('soft_delete', {id: softskill.id}) }}">
 															<input type="hidden" name="_method" value="DELETE">
-															<input type="submit" value="Delet" class="btn btn-danger">
+															<input type="submit" value="Delet" class="btn btn-sm btn-danger">
 															<input type="hidden" name="_token" value="{{ csrf_token('deletesoft' ~ softskill.id) }}">
 														</form>
 													</td>
@@ -158,7 +158,7 @@
 													<td>
 														<form method="post" action="{{ path('langage_delete', {id: langage.id}) }}">
 															<input type="hidden" name="_method" value="DELETE">
-															<input type="submit" value="Delet" class="btn btn-danger">
+															<input type="submit" value="Delet" class="btn btn-sm btn-danger">
 															<input type="hidden" name="_token" value="{{ csrf_token('deletelangage' ~ langage.id) }}">
 														</form>
 													</td>
